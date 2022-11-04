@@ -20,7 +20,6 @@ export default component$(() => {
       onRejected={(error: Error) => <>Error: {error.message}</>}
       onResolved={(todos: TodoModel[]) => (
           <TodoDataComponent todos={todos}/>
-
       )}
   />
 });
