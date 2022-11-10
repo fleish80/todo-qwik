@@ -8,11 +8,11 @@ export default component$(({todos}: { todos: TodoModel[] }) => {
             <ul>
                 {todos.map((todo) => (
                     <li>
-                        {todo.description}
+                        {todo.description} <a href={`/edit/${todo.uid}`}>Edit</a>
                     </li>
                 ))}
             </ul>
-            <button onClick$={() => location.replace('/add')}>Add</button>
+            <a href={'/add'}>Add</a>
         </div>
 
     )

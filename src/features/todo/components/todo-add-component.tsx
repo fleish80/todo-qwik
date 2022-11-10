@@ -6,10 +6,6 @@ export default component$(() => {
     });
 
     const addTodo$ = $(async () => {
-
-        const data = new URLSearchParams();
-        data.set('description', store.description);
-
         await fetch('/add', {
             method: 'POST',
             body: JSON.stringify({description: store.description})

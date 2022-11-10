@@ -23,8 +23,13 @@ class TodoApiService {
                 resolve(true)
             }, 0)
         });
+    }
 
-
+    get(todoToFind: Partial<TodoModel>): Promise<TodoModel | undefined> {
+        return new Promise<TodoModel | undefined>((resolve) => {
+            const todoFound = this.todos.find((todo) => todo.uid === todoToFind.uid);
+            resolve(todoFound);
+        });
     }
 
 }
