@@ -1,11 +1,11 @@
 import {component$, Resource} from '@builder.io/qwik';
 import {DocumentHead, RequestHandler, useEndpoint} from '@builder.io/qwik-city';
 import {TodoModel} from '~/features/todo/models/todo.model';
-import {todoApiService} from '~/api-services/todo-api.service';
+import {todoService} from '~/features/todo/services/todo.service';
 import TodoEditComponent from '~/features/todo/components/todo-edit-component';
 
 export const onGet: RequestHandler<TodoModel> = async ({ params }) => {
-    return await todoApiService.get({uid: params.id});
+    return await todoService.get({uid: params.id});
 };
 
 

@@ -3,11 +3,11 @@ import type {DocumentHead} from '@builder.io/qwik-city';
 import TodoDataComponent from '~/features/todo/components/todo-data.component';
 import {RequestHandler, useEndpoint} from '@builder.io/qwik-city';
 import {TodoModel} from '~/features/todo/models/todo.model';
-import {todoApiService} from '~/api-services/todo-api.service';
+import {todoService} from '~/features/todo/services/todo.service';
 
 
 export const onGet: RequestHandler<TodoModel[]> = async () => {
-  return await todoApiService.load();
+  return await todoService.load();
 };
 
 export default component$(() => {

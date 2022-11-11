@@ -1,7 +1,7 @@
 import {randomUUID} from 'crypto';
 import {TodoModel} from '~/features/todo/models/todo.model';
 
-class TodoApiService {
+class TodoService {
 
     todos: TodoModel[] = [
         {uid: randomUUID(), description: 'Create my first Qwik application'},
@@ -46,5 +46,5 @@ class TodoApiService {
 
 }
 
-export const todoApiService = new TodoApiService();
+export const todoService = new TodoService();
 

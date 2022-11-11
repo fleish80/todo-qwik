@@ -2,7 +2,7 @@ import {component$} from '@builder.io/qwik';
 import {DocumentHead, RequestHandler} from '@builder.io/qwik-city';
 import TodoAddComponent from '~/features/todo/components/todo-add-component';
 import {TodoModel} from '~/features/todo/models/todo.model';
-import {todoApiService} from '~/api-services/todo-api.service';
+import {todoService} from '~/features/todo/services/todo.service';
 
 export const onPost: RequestHandler = async ({request}) => {
     const formData = await request.formData();
@@ -12,7 +12,7 @@ export const onPost: RequestHandler = async ({request}) => {
     while (!result.done) {
         if (result.value) {
             todo = JSON.parse(result.value[0]);
-            return todoApiService.add(todo);
+            return todoService.add(todo);
         }
         result = entries.next();
     }
