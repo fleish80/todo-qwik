@@ -27,8 +27,20 @@ class TodoApiService {
 
     get(todoToFind: Partial<TodoModel>): Promise<TodoModel | undefined> {
         return new Promise<TodoModel | undefined>((resolve) => {
-            const todoFound = this.todos.find((todo) => todo.uid === todoToFind.uid);
-            resolve(todoFound);
+            setTimeout(() => {
+                const todoFound = this.todos.find((todo) => todo.uid === todoToFind.uid);
+                resolve(todoFound);
+            },0);
+        });
+    }
+
+    edit(todoToEdit: TodoModel): Promise<boolean> {
+        return new Promise<boolean>((resolve) => {
+            setTimeout(() => {
+                const index = this.todos.findIndex((todo) => todo.uid === todoToEdit.uid);
+                this.todos[index] = todoToEdit;
+                resolve(true)
+            }, 0);
         });
     }
 
