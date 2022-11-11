@@ -8,6 +8,7 @@ export default component$(({todos}: { todos: TodoModel[] }) => {
             <ul>
                 {todos.map((todo) => (
                     <li>
+                        <input type="checkbox" checked={todo.done}/>
                         {todo.description} <a href={`/edit/${todo.uid}`}>Edit</a>
                     </li>
                 ))}

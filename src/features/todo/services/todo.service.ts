@@ -4,8 +4,8 @@ import {TodoModel} from '~/features/todo/models/todo.model';
 class TodoService {
 
     todos: TodoModel[] = [
-        {uid: randomUUID(), description: 'Create my first Qwik application'},
-        {uid: randomUUID(), description: 'Create todo application'},
+        {uid: randomUUID(), description: 'Create my first Qwik application', done: true},
+        {uid: randomUUID(), description: 'Create todo application', done: false},
     ]
 
     load() {
@@ -14,12 +14,16 @@ class TodoService {
         });
     }
 
-    add(todo: Partial<TodoModel>): Promise<boolean> {
-
+    add(todoToAdd: Partial<TodoModel>): Promise<boolean> {
         return new Promise<boolean>((resolve) => {
             setTimeout(() => {
-                todo.uid = randomUUID();
-                this.todos = [...this.todos, todo as TodoModel];
+                const todo: TodoModel = {
+                    description: todoToAdd.description as string,
+                    uid: randomUUID(),
+                    done: false
+                }
+
+                this.todos = [...this.todos, todo];
                 resolve(true)
             }, 0)
         });
